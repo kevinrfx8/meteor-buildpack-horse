@@ -43,6 +43,10 @@ if [ -n "${BUILDPACK_CLEAR_CACHE+1}" ]; then
 fi
 
 #
+#Before find meteor app, install the npm packages
+#
+
+#
 # Find the meteor app ($APP_SOURCE_DIR).
 #
 
@@ -50,6 +54,7 @@ fi
 # METEOR_APP_DIR (which defaults empty).  If you put the meteor app in src/ or
 # some other subdirectory, define METEOR_APP_DIR.
 APP_SOURCE_DIR="${APP_CHECKOUT_DIR}"
+cd $APP_SOURCE_DIR && npm install
 if [ -n "$METEOR_APP_DIR" ]; then
   APP_SOURCE_DIR="${APP_SOURCE_DIR}/${METEOR_APP_DIR}"
 fi
