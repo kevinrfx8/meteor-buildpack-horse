@@ -60,7 +60,7 @@ if [ -n "$METEOR_APP_DIR" ]; then
   #Copy node_modules from root repo to meteor app dir.
   if [ -d "$APP_CHECKOUT_DIR/node_modules" ]; then
     echo "-----> Copying node modules from $APP_CHECKOUT_DIR/node_modules to $APP_SOURCE_DIR"
-    cp -R $APP_CHECKOUT_DIR/node_modules $APP_SOURCE_DIR
+    cp -R $APP_CHECKOUT_DIR/node_modules $APP_SOURCE_DIR || true
   fi
 fi
 
