@@ -57,11 +57,14 @@ APP_SOURCE_DIR="${APP_CHECKOUT_DIR}"
 cd $APP_SOURCE_DIR && npm install
 if [ -n "$METEOR_APP_DIR" ]; then
   APP_SOURCE_DIR="${APP_SOURCE_DIR}/${METEOR_APP_DIR}"
+  echo "---> Installing metoer dependencies."
+  cd $APP_SOURCE_DIR && npm install
+
   #Copy node_modules from root repo to meteor app dir.
-  if [ -d "$APP_CHECKOUT_DIR/node_modules" ]; then
-    echo "-----> Copying node modules from $APP_CHECKOUT_DIR/node_modules to $APP_SOURCE_DIR"
-    cp -R $APP_CHECKOUT_DIR/node_modules $APP_SOURCE_DIR || true
-  fi
+  #if [ -d "$APP_CHECKOUT_DIR/node_modules" ]; then
+  #  echo "-----> Copying node modules from $APP_CHECKOUT_DIR/node_modules to $APP_SOURCE_DIR"
+  #  cp -R $APP_CHECKOUT_DIR/node_modules $APP_SOURCE_DIR || true
+  #fi
 fi
 
 # Try "$APP_SOURCE_DIR/app/" if meteor app isn't there (the "Iron scaffolding
